@@ -1,0 +1,23 @@
+<style>
+    a{
+        text-decoration:none;
+    }
+</style>
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>All Blogs</h2>
+    {% if blogs %}
+        <ul>
+        {% for blog in blogs %}
+           
+                <form><h1>
+                <a href="{{ url_for('read_blog', blog_id=blog.blog_id) }}"><strong>{{ blog.blog_name }}</strong></a></h1>
+                <p>{{ blog.blog_content }}...</p><br></form>
+           
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No blogs available.</p>
+    {% endif %}
+{% endblock %}

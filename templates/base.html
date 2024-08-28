@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #282c34;
+            color: #ffffff;
+            padding: 20px 0;
+            position: relative;
+        }
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 40px;  /* Margin from the left */
+            margin-right: 40px; /* Margin from the right */
+        }
+        header .branding {
+            text-align: left;
+        }
+        header h1 {
+            font-size: 2rem; /* Adjusted size for better responsiveness */
+            margin: 0;
+        }
+        header p {
+            font-size: 0.875rem; /* Adjusted size for better responsiveness */
+            margin: 5px 0 0;
+            color: yellow;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end; /* Align nav items to the right */
+            align-items: center;
+            padding-right: 20px; /* Added padding to the right side of nav */
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        nav a:hover {
+            text-decoration: none;
+            color: yellow;
+        }
+        main {
+            flex: 1;
+            padding: 20px 0;
+            margin-left: 40px;  /* Margin from the left */
+            margin-right: 40px; /* Margin from the right */
+        }
+        footer {
+            background-color: #282c34;
+            color: #ffffff;
+            text-align: center;
+            padding: 5px 0;
+          
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .highlight-yellow {
+            color: yellow;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav {
+                flex-direction: row;
+                width: 100%;
+                justify-content: flex-end;
+            }
+            nav a {
+                margin-bottom: 0; /* No extra space needed */
+            }
+            header h1 {
+                font-size: 1.5rem; /* Adjust size for smaller screens */
+            }
+            header p {
+                font-size: 0.75rem; /* Adjust size for smaller screens */
+            }
+        }
+        
+        @media (max-width: 576px) {
+            header h1 {
+                font-size: 1.25rem; /* Further adjust size for very small screens */
+            }
+            header p {
+                font-size: 0.625rem; /* Further adjust size for very small screens */
+            }
+            nav {
+                flex-direction: column;
+                align-items: flex-end; /* Align to the right on very small screens */
+                padding-right: 10px; /* Less padding on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="branding">
+                <h1>Perspective</h1>
+                <p>See Beyond the Surface</p>
+            </div>
+            <nav>
+                <a href="{{ url_for('index') }}">Home</a>
+                {% if 'username' in session %}
+                    <a href="{{ url_for('add_blog') }}">Add Blog</a>
+                    <a href="{{ url_for('profile') }}">Profile</a>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">Login</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 | Perspective : Made by <span class="highlight-yellow">Rani Kamble</span></p>
+        </div>
+    </footer>
+</body>
+</html>

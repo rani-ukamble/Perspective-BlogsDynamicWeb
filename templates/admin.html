@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block content %}
+    <h2>Admin Dashboard</h2>
+    <h3>User and Blog Details</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Blog ID</th>
+                <th>Blog Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.username }}</td>
+                    <td>{{ item.role }}</td>
+                    <td>{{ item.blog_id }}</td>
+                    <td>{{ item.blog_name }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

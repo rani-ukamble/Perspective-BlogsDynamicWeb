@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-container {
+            max-width: 100%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h1 {
+            margin-bottom: 20px;
+            color: #007bff;
+            text-align: center;
+        }
+        .form-container label {
+            font-weight: bold;
+        }
+        .form-container input, .form-container textarea {
+            margin-bottom: 15px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 10px;
+        }
+        .form-container input {
+            height: 50px; /* Adjust height for the Blog Name input */
+        }
+        .form-container textarea {
+            height: 150px; /* Adjust height for the Blog Content textarea */
+        }
+        .form-container button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%; /* Make button full width */
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 576px) {
+            .form-container {
+                padding: 15px;
+            }
+            .form-container h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="container form-container mt-4">
+    <h1>Add New Blog</h1>
+    <form action="{{ url_for('add_blog') }}" method="POST">
+        <div class="form-group">
+            <label for="blog_name">Blog Name:</label>
+            <input type="text" id="blog_name" name="blog_name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="blog_content">Blog Content:</label>
+            <textarea id="blog_content" name="blog_content" class="form-control" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Blog</button>
+    </form>
+</div>
+{% endblock %}

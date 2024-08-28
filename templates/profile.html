@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Welcome, {{ user.username }}</h2>
+    <br>
+    {% if blogs %}
+        <div class="list-group">
+            {% for blog in blogs %}
+                <div class="list-group-item list-group-item-action">
+                   
+                        <form action="{{ url_for('delete_blog', blog_id=blog.blog_id) }}" method="POST" class="d-inline">
+                            <h1 class="mb-1">{{ blog.blog_name }}</h1>
+                            <p class="mb-1">{{ blog.blog_content[:150] }}...</p>
+                            <div class="d-inline-flex">  <!-- Changed to d-inline-flex for inline buttons -->
+                                <a href="{{ url_for('read_blog', blog_id=blog.blog_id) }}" class="btn btn-primary btn-sm">Read</a>
+                                <a href="{{ url_for('edit_blog', blog_id=blog.blog_id) }}" class="btn btn-warning btn-sm mx-2">Edit</a><br><br>
+                            <button type="submit" class="btn btn-danger btn-sm" style="background-color: red; border-color: red; width: 75px;">Delete</button>
+                        </form>
+                    </div><br>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info mt-3" role="alert">
+            You haven't written any blogs yet.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
