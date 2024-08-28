@@ -1,4 +1,4 @@
-# Perspective-BlogsDynamicWeb
+# Perspective-See Beyond the Surface
 
 Welcome to Perspective, a dynamic and engaging blog platform that allows you to explore and share unique insights on a variety of topics. Designed with user experience in mind, Perspective offers a seamless and intuitive interface for both readers and writers.
 
