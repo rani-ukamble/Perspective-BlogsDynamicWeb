@@ -1,5 +1,7 @@
 # Perspective-See Beyond the Surface
 
+https://perspective-blogsdynamicweb.onrender.com/
+
 Welcome to Perspective, a dynamic and engaging blog platform that allows you to explore and share unique insights on a variety of topics. Designed with user experience in mind, Perspective offers a seamless and intuitive interface for both readers and writers.
 
 Key Features:
@@ -31,4 +33,4 @@ The branding emphasizes simplicity and focus, with a minimalist aesthetic that h
 The UI includes subtle yellow highlights to draw attention to key elements.
 Perspective is more than just a blog platform; it’s a space where users can express their thoughts and ideas while engaging with a like-minded community. Start your journey today by reading insightful blogs or contributing your own!
 
-https://perspective-blogsdynamicweb.onrender.com/
+
